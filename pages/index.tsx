@@ -12,7 +12,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main>
-        <h1>
+        <h1 className="text-xl">
           Aloha to <a href="https://nextjs.org">Next.js!</a>
         </h1>
 
