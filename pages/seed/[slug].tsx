@@ -2,6 +2,7 @@ import React from 'react'
 import Head from 'next/head'
 import matter from 'gray-matter'
 import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 
 function Seed(props: { data: any, content: string }) {
   return (
@@ -15,7 +16,7 @@ function Seed(props: { data: any, content: string }) {
       <main className="px-4 py-10 max-w-3xl mx-auto sm:px-6 sm:py-12 lg:max-w-4xl lg:py-16 lg:px-8 xl:max-w-6xl">
         <article className="prose sm:prose-lg lg:prose-xl xl:prose-xl 2xl:prose-2xl mx-auto">
           <h1>{props.data.title}</h1>
-          <ReactMarkdown children={props.content} />
+          <ReactMarkdown children={props.content} remarkPlugins={[remarkGfm]} />
         </article>
       </main>
     </div>
