@@ -12,17 +12,148 @@ const Home: NextPage = () => {
       </Head>
 
       <main className="px-4 py-10 max-w-3xl mx-auto sm:px-6 sm:py-12 lg:max-w-4xl lg:py-16 lg:px-8 xl:max-w-6xl">
-        <article className="prose prose-sm sm:prose-base lg:prose-lg xl:prose-xl 2xl:prose-2xl mx-auto">
-          <h1>Garlic bread with cheese: What the science tells us</h1>
-          <p>
-            For years parents have espoused the health benefits of eating garlic bread with cheese to their
-            children, with the food earning such an iconic status in our culture that kids will often dress
-            up as warm, cheesy loaf for Halloween.
-          </p>
-          <p>
-            But a recent study shows that the celebrated appetizer may be linked to a series of rabies cases
-            springing up around the country.
-          </p>
+        <article className="prose sm:prose-lg lg:prose-xl xl:prose-xl 2xl:prose-2xl mx-auto">
+          <h1>Title of the article: h1 head</h1>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis egestas pretium aenean pharetra. Orci eu lobortis elementum nibh tellus molestie. Vulputate dignissim suspendisse in est. Vel pharetra vel turpis nunc. Malesuada nunc vel risus commodo. Nisi vitae suscipit tellus mauris. Posuere morbi leo urna molestie at elementum eu. Urna duis convallis convallis tellus. Urna molestie at elementum eu. Nunc sed blandit libero volutpat. </p>
+          <h2>h2 Heading</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis egestas pretium aenean pharetra. Orci eu lobortis elementum nibh tellus molestie. Vulputate dignissim suspendisse in est. Vel pharetra vel turpis nunc. Malesuada nunc vel risus commodo. Nisi vitae suscipit tellus mauris. Posuere morbi leo urna molestie at elementum eu. Urna duis convallis convallis tellus. Urna molestie at elementum eu. Nunc sed blandit libero volutpat. </p>
+          <h3>h3 Heading</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis egestas pretium aenean pharetra. Orci eu lobortis elementum nibh tellus molestie. Vulputate dignissim suspendisse in est. Vel pharetra vel turpis nunc. Malesuada nunc vel risus commodo. Nisi vitae suscipit tellus mauris. Posuere morbi leo urna molestie at elementum eu. Urna duis convallis convallis tellus. Urna molestie at elementum eu. Nunc sed blandit libero volutpat. </p>
+          <h4>h4 Heading</h4>
+          <h5>h5 Heading</h5>
+          <h6>h6 Heading</h6>
+          <h2>Horizontal Rules</h2>
+          <h2>Typographic replacements</h2>
+          <p>Enable typographer option to see result.</p>
+          <p>© © ® ® ™ ™ § § ±</p>
+          <p>test… test… test… test?.. test!..</p>
+          <p>!!! ??? ,  – —</p>
+          <p>“Smartypants, double quotes” and ‘single quotes’</p>
+          <h2>Emphasis</h2>
+          <p><strong>This is bold text</strong></p>
+          <p><strong>This is bold text</strong></p>
+          <p><em>This is italic text</em></p>
+          <p><em>This is italic text</em></p>
+          <p><s>Strikethrough</s></p>
+          <h2>Blockquotes</h2>
+          <blockquote>
+            <p>Blockquotes can also be nested…</p>
+            <blockquote>
+              <p>…by using additional greater-than signs right next to each other…</p>
+              <blockquote>
+                <p>…or with spaces between arrows.</p>
+              </blockquote>
+            </blockquote>
+          </blockquote>
+
+          <h2>Lists</h2>
+          <p>Unordered</p>
+          <ul>
+            <li>Create a list by starting a line with <code>+</code>, <code>-</code>, or <code>*</code></li>
+            <li>Sub-lists are made by indenting 2 spaces:
+              <ul>
+                <li>Marker character change forces new list start:
+                  <ul>
+                    <li>Ac tristique libero volutpat at</li>
+                  </ul>
+                  <ul>
+                    <li>Facilisis in pretium nisl aliquet</li>
+                  </ul>
+                  <ul>
+                    <li>Nulla volutpat aliquam velit</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>Very easy!</li>
+          </ul>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis egestas pretium aenean pharetra. Orci eu lobortis elementum nibh tellus molestie. Vulputate dignissim suspendisse in est. Vel pharetra vel turpis nunc. Malesuada nunc vel risus commodo. Nisi vitae suscipit tellus mauris. Posuere morbi leo urna molestie at elementum eu. Urna duis convallis convallis tellus. Urna molestie at elementum eu. Nunc sed blandit libero volutpat:</p>
+          <ol>
+            <li>
+              <p>Lorem ipsum dolor sit amet</p>
+            </li>
+            <li>
+              <p>Consectetur adipiscing elit</p>
+            </li>
+            <li>
+              <p>Integer molestie lorem at massa</p>
+            </li>
+            <li>
+              <p>You can use sequential numbers…</p>
+            </li>
+            <li>
+              <p>…or keep all the numbers as <code>1.</code></p>
+            </li>
+          </ol>
+          <p>Turpis egestas aenean pharetra. Orci eu lobortis elementum nibh tellus molestie. Vulputate dignissim suspendisse in est. Vel pharetra vel turpis nunc. Start numbering with offset:</p>
+          <ol start={57}>
+            <li>foo</li>
+            <li>bar</li>
+          </ol>
+
+          <blockquote>
+            <p>Why is Tailwind removing the default styles on my
+              <code>h1</code>
+              elements? How do I disable this? What do you mean I lose all the other base styles too?</p>
+          </blockquote>
+
+          <h2>Tables</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Option</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>data</td>
+                <td>path to data files to supply the data that will be passed into templates.</td>
+              </tr>
+              <tr>
+                <td>engine</td>
+                <td>engine to be used for processing templates. Handlebars is the default.</td>
+              </tr>
+              <tr>
+                <td>ext</td>
+                <td>extension to be used for dest files.</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>Right aligned columns</p>
+          <table>
+            <thead>
+              <tr>
+                <th className="text-align:right">Option</th>
+                <th className="text-align:right">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="text-align:right">data</td>
+                <td className="text-align:right">path to data files to supply the data that will be passed into templates.</td>
+              </tr>
+              <tr>
+                <td className="text-align:right">engine</td>
+                <td className="text-align:right">engine to be used for processing templates. Handlebars is the default.</td>
+              </tr>
+              <tr>
+                <td className="text-align:right">ext</td>
+                <td className="text-align:right">extension to be used for dest files.</td>
+              </tr>
+            </tbody>
+          </table>
+          <h2>Links</h2>
+          <p><a href="http://dev.nodeca.com">link text</a></p>
+          <p><a href="http://nodeca.github.io/pica/demo/" title="title text!">link with title</a></p>
+          <p>Autoconverted link <a href="https://github.com/nodeca/pica">https://github.com/nodeca/pica</a> (enable linkify to see)</p>
+          <h2>Plugins</h2>
+            <p>Indented code</p>
+            <pre><code>
+            line 1 of code
+            line 2 of code
+            line 3 of code
+            </code></pre>
         </article>
       </main>
     </div>
