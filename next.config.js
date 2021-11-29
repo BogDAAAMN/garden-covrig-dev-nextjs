@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
   reactStrictMode: true,
-  webpack(config, { dev, isServer }) {
+  webpack: function(config, { dev, isServer }) {
     // ${previousConfig...}
 
     // Replace React with Preact only in client production build
@@ -13,6 +13,13 @@ module.exports = {
       })
     }
 
+    return config
+  },
+  webpack: function(config) {
+    config.module.rules.push({
+      test: /\.md$/,
+      use: 'raw-loader',
+    })
     return config
   },
 }

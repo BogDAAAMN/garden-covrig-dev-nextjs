@@ -1,7 +1,8 @@
 import React from 'react'
 import Head from 'next/head'
+import matter from 'gray-matter'
 
-function Seed(props: { slug: string }) {
+function Seed(props: { data: any, content: string }) {
   return (
     <div>
       <Head>
@@ -12,8 +13,8 @@ function Seed(props: { slug: string }) {
 
       <main className="px-4 py-10 max-w-3xl mx-auto sm:px-6 sm:py-12 lg:max-w-4xl lg:py-16 lg:px-8 xl:max-w-6xl">
         <article className="prose sm:prose-lg lg:prose-xl xl:prose-xl 2xl:prose-2xl mx-auto">
-          <h1>Title here</h1>
-          <p>Here we'll load "{props.slug}"</p>
+          <h1>{props.data.title}</h1>
+          <p>{props.content}</p>
         </article>
       </main>
     </div>
@@ -22,8 +23,12 @@ function Seed(props: { slug: string }) {
 
 Seed.getInitialProps = async (context: { query: { slug: string } }) => {
   const { slug } = context.query
-
-  return { slug }
+  
+  const content = await import(`../../content/${slug}.md`)
+  
+  const data = matter(content.default)
+  // console.log({ ...data })
+  return { ...data }
 }
 
 export default Seed
