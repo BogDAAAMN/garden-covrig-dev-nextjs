@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
+
+.prose .post-title {
+    margin-bottom: 0;
+}
+
+.prose .post-author {
+    margin-top: 0;
+    text-transform: uppercase;
+    color: #757575;
+    font-weight: bold;
+    font-size: smaller;
+}
+
 @tailwind utilities;

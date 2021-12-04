@@ -4,10 +4,11 @@ import matter from 'gray-matter'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 
+import PostTitle from '../../components/PostTitle'
+
 import { GetStaticProps, GetStaticPaths } from 'next'
 
-function Seed(props: { data: any, content: string }) {
-  const cnt = props.content
+function Seed({data, content}: any) {
   return (
     <div>
       <Head>
@@ -16,10 +17,11 @@ function Seed(props: { data: any, content: string }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+
       <main className="px-4 py-10 max-w-3xl mx-auto sm:px-6 sm:py-12 lg:max-w-4xl lg:py-16 lg:px-8 xl:max-w-6xl">
         <article className="prose sm:prose-lg lg:prose-xl xl:prose-xl 2xl:prose-2xl mx-auto">
-          <h1>{props.data.title}</h1>
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>{props.content}</ReactMarkdown>
+          <PostTitle title={data.title} author="Bogdan Covrig"/>
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>{content}</ReactMarkdown>
         </article>
       </main>
     </div>
@@ -48,7 +50,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   return {
     props: { 
       data: {
-        title: data.data[0].attributes.title
+        ...data.data[0].attributes
       },
       content: data.data[0].attributes.body
     },
