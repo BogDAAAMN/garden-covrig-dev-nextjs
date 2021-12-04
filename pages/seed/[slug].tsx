@@ -4,6 +4,8 @@ import matter from 'gray-matter'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 
+import { GetStaticProps, GetStaticPaths } from 'next'
+
 function Seed(props: { data: any, content: string }) {
   const cnt = props.content
   return (
@@ -24,14 +26,34 @@ function Seed(props: { data: any, content: string }) {
   )
 }
 
-Seed.getInitialProps = async (context: { query: { slug: string } }) => {
-  const { slug } = context.query
-  
-  const content = await import(`../../content/${slug}.md`)
-  
-  const data = matter(content.default)
-  // console.log({ ...data })
-  return { ...data }
+export const getStaticPaths: GetStaticPaths = async () => {
+  const seeds = await fetch(`${process.env.STRAPI_URL}/api/seeds/`)
+  const data = await seeds.json()
+
+  return {
+    paths: data.data.map((article: any) => ({
+      params: {
+        slug: article.attributes.slug,
+      },
+    })),
+    fallback: false,
+  }
+}
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const seed = await fetch(`${process.env.STRAPI_URL}/api/seeds?filters[slug][$eq]=${params?.slug}`)
+  const data = await seed.json()
+  // const categories = await fetchAPI("/categories")
+
+  return {
+    props: { 
+      data: {
+        title: data.data[0].attributes.title
+      },
+      content: data.data[0].attributes.body
+    },
+    revalidate: 1,
+  }
 }
 
 export default Seed
