@@ -1,11 +1,9 @@
 import React from 'react'
 import Head from 'next/head'
-import matter from 'gray-matter'
-import ReactMarkdown from 'react-markdown'
-import remarkGfm from 'remark-gfm'
 
 import PostTitle from '../../components/PostTitle'
 import PostBody from '../../components/PostBody'
+import Post from '../../components/Post'
 
 import { GetStaticProps, GetStaticPaths } from 'next'
 
@@ -18,12 +16,11 @@ function Seed({data, content}: any) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="px-4 py-10 max-w-3xl mx-auto sm:px-6 sm:py-12 lg:max-w-4xl lg:py-16 lg:px-8 xl:max-w-6xl">
-        <article className="prose sm:prose-lg lg:prose-xl xl:prose-xl 2xl:prose-2xl mx-auto">
+      <Post>
           <PostTitle title={data.title} author="Bogdan Covrig"/>
           <PostBody>{content}</PostBody>
-        </article>
-      </main>
+      </Post>
+
     </div>
   )
 }
