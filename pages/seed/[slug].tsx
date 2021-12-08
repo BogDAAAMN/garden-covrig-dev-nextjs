@@ -26,13 +26,13 @@ function Seed({data, content}: any) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const seeds = await fetch(`${process.env.STRAPI_URL}/api/seeds/`)
-  const data = await seeds.json()
+  const res = await fetch(`${process.env.STRAPI_URL}/api/seeds/`)
+  const seeds = await res.json()
 
   return {
-    paths: data.data.map((article: any) => ({
+    paths: seeds.data.map((seed: {attributes: {slug: string}}) => ({
       params: {
-        slug: article.attributes.slug,
+        slug: seed.attributes.slug,
       },
     })),
     fallback: false,
@@ -40,18 +40,16 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const seed = await fetch(`${process.env.STRAPI_URL}/api/seeds?filters[slug][$eq]=${params?.slug}`)
-  const data = await seed.json()
-  // const categories = await fetchAPI("/categories")
+  const res = await fetch(`${process.env.STRAPI_URL}/api/seeds?filters[slug][$eq]=${params?.slug}`)
+  const seed = await res.json()
 
   return {
     props: { 
       data: {
-        ...data.data[0].attributes
+        ...seed.data[0].attributes
       },
-      content: data.data[0].attributes.body
+      content: seed.data[0].attributes.body
     },
-    revalidate: 1,
   }
 }
 
