@@ -1,4 +1,4 @@
-import { ReactChild, ReactChildren } from "react";
+import { ReactChild } from "react";
 
 type PostProps = {
   children: ReactChild | ReactChild []
